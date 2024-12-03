@@ -5,8 +5,9 @@ set -e
 RED='\033[0;31m'
 NC='\033[0m'
 
-REPO_PATH=$(PWD)
+REPO_PATH=$(pwd)
 TARG_PATH=$(realpath "${1:-$(pwd)}")
+RUN_OS=$(uname)
 
 echo 'repository path : '$REPO_PATH
 echo 'target path : '$TARG_PATH
@@ -19,11 +20,15 @@ if [ ! -f "$TARG_PATH/pom.xml" ]; then
     echo -e "${RED}Error: pom.xml not found in ${TARG_PATH}${NC}"
     exit 1
 fi
+if [ RUN_OS == '*MINGW*' ]; then
+  echo "Run on MINGW OS"
+  REPO_PATH=$(PWD)
+fi
 
+chmod 777 $REPO_PATH/releases
 cd $TARG_PATH
-mvn -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases clean deploy
+mvn clean deploy -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases
 cd $REPO_PATH
-chmod -R 775 ./releases
 
 git add .
 git status
