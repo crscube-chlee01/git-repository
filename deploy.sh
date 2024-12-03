@@ -5,8 +5,8 @@ set -e
 RED='\033[0;31m'
 NC='\033[0m'
 
-REPO_PATH=${PWD}
-TARG_PATH=${0}
+REPO_PATH=$(PWD)
+TARG_PATH=$(realpath "${1:-$(pwd)}")
 
 echo 'repository path : '$REPO_PATH
 echo 'target path : '$TARG_PATH
@@ -20,8 +20,10 @@ if [ ! -f "$TARG_PATH/pom.xml" ]; then
     exit 1
 fi
 
-mvn -Dmaven.test.skip=true -DaltDeploymentRepository=snapshot-repo::default::file://$REPO_PATH/snapshots clean deploy
 cd $TARG_PATH
+mvn -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases clean deploy
+cd $REPO_PATH
+chmod -R 775 ./releases
 
 git add .
 git status
