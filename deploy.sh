@@ -26,6 +26,7 @@ cd $REPO_PATH
 
 echo "Check releases directory:"
 ls -l "$REPO_PATH/releases"
+ls -l "$REPO_PATH"
 
 git add .
 git status
