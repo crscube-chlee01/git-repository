@@ -5,7 +5,7 @@ set -e
 RED='\033[0;31m'
 NC='\033[0m'
 
-REPO_PATH=${PWD}
+REPO_PATH=$(PWD)
 TARG_PATH=$(realpath "${1:-$(pwd)}")
 
 echo 'repository path : '$REPO_PATH
