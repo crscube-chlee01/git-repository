@@ -23,10 +23,7 @@ fi
 cd $TARG_PATH
 mvn -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases clean deploy
 cd $REPO_PATH
-
-echo "Check releases directory:"
-ls -l "$REPO_PATH/releases"
-ls -l "$REPO_PATH"
+chmod -R 775 ./releases
 
 git add .
 git status
