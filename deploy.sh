@@ -21,7 +21,7 @@ if [ ! -f "$TARG_PATH/pom.xml" ]; then
 fi
 
 cd $TARG_PATH
-mvn -Dmaven.test.skip=true -DaltDeploymentRepository=snapshot-repo::default::file://$REPO_PATH/snapshots clean deploy
+mvn -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases clean deploy
 cd $REPO_PATH
 
 git add .
