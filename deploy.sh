@@ -24,6 +24,9 @@ cd $TARG_PATH
 mvn -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases clean deploy
 cd $REPO_PATH
 
+echo "Check releases directory:"
+ls -l "$REPO_PATH/releases"
+
 git add .
 git status
 git commit -m "release new version of ${TARG_PATH##*/}"
