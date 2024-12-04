@@ -27,7 +27,7 @@ fi
 
 chmod 777 $REPO_PATH/releases
 cd $TARG_PATH
-mvn clean deploy -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases
+mvn clean deploy -Dmaven.test.skip=true -DaltDeploymentRepository=release-repo::default::file://$REPO_PATH/releases
 cd $REPO_PATH
 
 git add .
