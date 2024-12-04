@@ -3,21 +3,21 @@
   <groupId>io.crscube</groupId>
   <artifactId>cube-pdf-core</artifactId>
   <versioning>
-    <lastUpdated>20241204020226</lastUpdated>
+    <lastUpdated>20241204020653</lastUpdated>
     <snapshot>
-      <timestamp>20241204.020226</timestamp>
-      <buildNumber>3</buildNumber>
+      <timestamp>20241204.020653</timestamp>
+      <buildNumber>4</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.1-20241204.020226-3</value>
-        <updated>20241204020226</updated>
+        <value>0.1-20241204.020653-4</value>
+        <updated>20241204020653</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.1-20241204.020226-3</value>
-        <updated>20241204020226</updated>
+        <value>0.1-20241204.020653-4</value>
+        <updated>20241204020653</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
