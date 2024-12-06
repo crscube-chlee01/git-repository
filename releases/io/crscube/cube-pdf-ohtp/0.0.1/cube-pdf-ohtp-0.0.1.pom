@@ -13,5 +13,34 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <openhtml.version>1.0.3</openhtml.version>
+        <cubepdfcore.version>1.0.0</cubepdfcore.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>cube-repository</id>
+            <url>https://github.com/crscube-chlee01/git-repository/tree/release/releases</url> <!-- 임시 repo -->
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.crscube</groupId>
+            <artifactId>cube-pdf-core</artifactId>
+            <version>${cubepdfcore.version}</version>
+        </dependency>
+        <dependency>
+            <!-- ALWAYS required, usually included transitively. -->
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-core</artifactId>
+            <version>${openhtml.version}</version>
+        </dependency>
+        <dependency>
+            <!-- Required for PDF output. -->
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-pdfbox</artifactId>
+            <version>${openhtml.version}</version>
+        </dependency>
+    </dependencies>
 </project>
