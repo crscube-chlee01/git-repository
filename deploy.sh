@@ -26,11 +26,8 @@ if [ RUN_OS == '*MINGW*' ]; then
 fi
 
 chmod 777 $REPO_PATH/releases
-chmod 777 $REPO_PATH/snapshots
 cd $TARG_PATH
-#mvn clean deploy -Dmaven.test.skip=true -DaltDeploymentRepository=release::default::file://$REPO_PATH/releases
-mvn jar:jar
-mvn -Dmaven.test.skip=true -DaltDeploymentRepository=snapshot-repo::default::file://$REPO_PATH/snapshots clean deploy
+mvn clean deploy -Dmaven.test.skip=true -DaltDeploymentRepository=release-repo::default::file://$REPO_PATH/releases
 cd $REPO_PATH
 
 git add .
